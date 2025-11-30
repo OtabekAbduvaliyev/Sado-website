@@ -18,7 +18,8 @@ import {
   Volume2
 } from 'lucide-react';
 import { TeamMember, RoadmapItem, Feature, TechStackItem } from './types';
-
+import doniyorImg from "./assets/doniyor.jpg";
+import otabekImg from "./assets/otabek.jpg";
 export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: '1',
@@ -26,7 +27,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     role: "Teamlead & Frontend",
     skills: ["Next.js", "React.js", "TypeScript", "Tailwind CSS"],
     // Placeholder image used. Please replace with your local file: "/assets/otabek.jpg"
-    imageUrl: "./assets/otabek.jpg",
+    imageUrl: otabekImg,
     bio: "Codevision LLC da 2+ yillik tajriba. Next.js va Tailwind CSS bo'yicha ekspert. Yuqori sifatli UI/UX yechimlari muallifi.",
     links: { 
       github: "https://github.com/OtabekAbduvaliyev", 
@@ -39,7 +40,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     role: "Backend Developer",
     skills: ["Node.js", "Microservices", "PostgreSQL", "MongoDB"],
     // Placeholder image used. Please replace with your local file: "/assets/doniyor.jpg"
-    imageUrl: "./assets/doniyor.jpg",
+    imageUrl: doniyorImg,
     bio: "1.5 yillik tajriba. Microservices arxitekturasi, REST/FastAPI va ma'lumotlar bazalari (Postgres/Mongo) bo'yicha mutaxassis.",
     links: { 
       github: "https://github.com/MusayevDoniyor", 
