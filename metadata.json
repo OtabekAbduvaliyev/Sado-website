@@ -1,0 +1,7 @@
+{
+  "name": "MatozAI Landing",
+  "description": "Introducer and demo website for MatozAI - The Uzbek Voice AI Platform.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
