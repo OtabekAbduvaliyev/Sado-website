@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Mic, ArrowRight, Play } from 'lucide-react';
 
-// YouTube video IDs
+// YouTube video ID
 const VIDEO_1_ID = 'iQ7BVqnCQzM';
-const VIDEO_2_ID = 'UDVtMYqUAyw';
 
 // Declare YouTube API types
 declare global {
@@ -15,9 +14,7 @@ declare global {
 
 const Demo: React.FC = () => {
   const video1Ref = useRef<HTMLDivElement>(null);
-  const video2Ref = useRef<HTMLDivElement>(null);
   const player1Ref = useRef<any>(null);
-  const player2Ref = useRef<any>(null);
   const [isAPIReady, setIsAPIReady] = useState(false);
 
   useEffect(() => {
@@ -37,38 +34,13 @@ const Demo: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (!isAPIReady || !video1Ref.current || !video2Ref.current) return;
+    if (!isAPIReady || !video1Ref.current) return;
 
-    // Initialize first video player with autoplay
+    // Initialize video player with autoplay
     player1Ref.current = new window.YT.Player(video1Ref.current, {
       videoId: VIDEO_1_ID,
       playerVars: {
         autoplay: 1,
-        controls: 1,
-        rel: 0,
-        modestbranding: 1,
-        playsinline: 1,
-      },
-      events: {
-        onStateChange: (event: any) => {
-          // When first video ends (state 0 = ended), play second video
-          if (event.data === window.YT.PlayerState.ENDED && player2Ref.current) {
-            // Scroll to second video
-            video2Ref.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            // Small delay before playing second video
-            setTimeout(() => {
-              player2Ref.current?.playVideo();
-            }, 500);
-          }
-        },
-      },
-    });
-
-    // Initialize second video player (without autoplay)
-    player2Ref.current = new window.YT.Player(video2Ref.current, {
-      videoId: VIDEO_2_ID,
-      playerVars: {
-        autoplay: 0,
         controls: 1,
         rel: 0,
         modestbranding: 1,
@@ -80,9 +52,6 @@ const Demo: React.FC = () => {
       // Cleanup
       if (player1Ref.current) {
         player1Ref.current.destroy();
-      }
-      if (player2Ref.current) {
-        player2Ref.current.destroy();
       }
     };
   }, [isAPIReady]);
@@ -99,7 +68,7 @@ const Demo: React.FC = () => {
       {/* Header Section */}
       <section className="relative pt-24 md:pt-32 pb-8 md:pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="text-center mb-8 md:mb-12">
+          <div className="text-center ">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-900/30 border border-emerald-800 text-emerald-400 text-xs sm:text-sm font-medium mb-4 md:mb-6">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -118,6 +87,42 @@ const Demo: React.FC = () => {
             </p>
           </div>
         </div>
+      </section>
+
+      {/* Full-Width Voice Wave Element */}
+      <section className="relative py-6 md:py-8 overflow-hidden">
+        <div className="w-full relative">
+          {/* Audio Wave Visualization */}
+          <div className="flex items-center justify-center h-16 md:h-20 gap-1 md:gap-1.5 px-4">
+            {[...Array(60)].map((_, i) => {
+              const height = Math.sin(i * 0.3) * 20 + 25;
+              const delay = i * 0.05;
+              return (
+                <div
+                  key={i}
+                  className="w-0.5 md:w-1 bg-gradient-to-t from-emerald-500/40 via-emerald-400/60 to-emerald-300/40 rounded-full"
+                  style={{
+                    height: `${height}%`,
+                    animation: `wave ${2 + Math.random()}s ease-in-out infinite`,
+                    animationDelay: `${delay}s`,
+                  }}
+                />
+              );
+            })}
+          </div>
+        </div>
+        <style>{`
+          @keyframes wave {
+            0%, 100% {
+              transform: scaleY(0.5);
+              opacity: 0.4;
+            }
+            50% {
+              transform: scaleY(1);
+              opacity: 0.8;
+            }
+          }
+        `}</style>
       </section>
 
       {/* Video 1 - Nearly Full Screen */}
@@ -154,46 +159,6 @@ const Demo: React.FC = () => {
               </h3>
               <p className="text-xs sm:text-sm text-slate-400">
                 O'zbek tilidagi nutqni matnga aylantirish muammolari va MatozAI yechimlari
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Video 2 - Nearly Full Screen */}
-      <section className="relative min-h-[70vh] sm:min-h-[75vh] md:min-h-[80vh] flex items-center justify-center py-6 md:py-12">
-        <div className="w-full max-w-[95vw] mx-auto px-4 sm:px-6 relative z-10">
-          <div className="relative rounded-lg md:rounded-xl overflow-hidden border border-dark-700/50">
-            {/* Video Container - Responsive */}
-            <div className="relative w-full bg-dark-800/40" style={{ height: 'clamp(400px, 70vh, 800px)' }}>
-              <div className="absolute inset-0 w-full h-full">
-                {/* YouTube Video Player */}
-                <div 
-                  ref={video2Ref}
-                  className="w-full h-full"
-                  style={{ height: '100%' }}
-                />
-                {/* Loading placeholder */}
-                {!isAPIReady && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-dark-900/60">
-                    <div className="text-center px-4">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mx-auto mb-4 rounded-full bg-blue-500/20 flex items-center justify-center animate-pulse">
-                        <Play className="text-blue-400 ml-1" size={24} style={{ width: 'clamp(20px, 5vw, 32px)', height: 'clamp(20px, 5vw, 32px)' }} />
-                      </div>
-                      <p className="text-slate-300 text-sm sm:text-base font-medium">Yuklanmoqda...</p>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-            
-            {/* Minimalistic Description */}
-            <div className="p-4 sm:p-6 bg-dark-800/30 border-t border-dark-700/30">
-              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-white mb-1">
-                Qanday Foydalanish va Imkoniyatlar
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-400">
-                Platforma funksiyalari va foydalanish bo'yicha qo'llanma
               </p>
             </div>
           </div>
