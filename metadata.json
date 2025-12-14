@@ -1,6 +1,6 @@
 {
-  "name": "MatozAI Landing",
-  "description": "Introducer and demo website for MatozAI - The Uzbek Voice AI Platform.",
+  "name": "Sado Landing",
+  "description": "Introducer and demo website for Sado - The Uzbek Voice AI Platform.",
   "requestFramePermissions": [
     "microphone"
   ]

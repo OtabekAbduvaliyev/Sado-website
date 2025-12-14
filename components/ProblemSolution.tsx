@@ -43,7 +43,7 @@ const ProblemSolution: React.FC = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Muammo va Yechim</h2>
           <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-            MatozAI an'anaviy vositalar ojiz qolgan joyda ishlaydi.
+            Sado an'anaviy vositalar ojiz qolgan joyda ishlaydi.
           </p>
         </div>
 
@@ -67,7 +67,7 @@ const ProblemSolution: React.FC = () => {
               <div className="p-8 bg-gradient-to-t from-emerald-900/10 to-transparent relative flex-grow">
                  <div className="flex items-center gap-3 mb-3 text-emerald-400 font-bold uppercase tracking-wider text-xs">
                   <Check size={14} strokeWidth={3} />
-                  MatozAI Yechimi
+                  Sado Yechimi
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">{item.solution}</h3>
                 <p className="text-slate-400 text-sm leading-relaxed">{item.descS}</p>

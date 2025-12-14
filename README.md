@@ -1,5 +1,5 @@
-MatozAI 🎙️
-MatozAI is a professional, high-performance voice-to-text platform optimized for the Uzbek language. It provides real-time transcription, audio recording, AI-powered summarization, and translation—all wrapped in a minimalist, "Soft UI" design.
+Sado 🎙️
+Sado is a professional, high-performance voice-to-text platform optimized for the Uzbek language. It provides real-time transcription, audio recording, AI-powered summarization, and translation—all wrapped in a minimalist, "Soft UI" design.
 
 Built with React, TypeScript, and the Google Gemini Live API.
 
@@ -35,8 +35,8 @@ Export: jspdf for PDF generation, Blob-based HTML conversion for Word.
 📦 Installation & Setup
 Clone the Repository
 
-git clone https://github.com/your-username/matozai.git
-cd matozai
+git clone https://github.com/your-username/Sado.git
+cd Sado
 Install Dependencies
 
 npm install
@@ -64,4 +64,4 @@ Upload: Click the Cloud Upload icon in the bottom deck to transcribe an existing
 Local Processing: Audio for "Live" mode is streamed directly to Google's API and not stored on any third-party server besides Google.
 Local Storage: Your history (audio and text) is stored entirely in your browser's IndexedDB. Clearing browser data will delete your history.
 📜 License
-MIT License © 2025 MatozAI
+MIT License © 2025 Sado

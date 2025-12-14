@@ -78,7 +78,7 @@ const Demo: React.FC = () => {
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-tight mb-4 md:mb-6 px-4">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">
-                MatozAI
+                Sado
               </span>
               {' '}Qanday Ishlaydi?
             </h1>
@@ -158,7 +158,7 @@ const Demo: React.FC = () => {
                 Muammo, Yechim va Texnologiyalar
               </h3>
               <p className="text-xs sm:text-sm text-slate-400">
-                O'zbek tilidagi nutqni matnga aylantirish muammolari va MatozAI yechimlari
+                O'zbek tilidagi nutqni matnga aylantirish muammolari va Sado yechimlari
               </p>
             </div>
           </div>

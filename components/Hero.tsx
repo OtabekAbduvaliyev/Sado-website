@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
   const animationRef = useRef<number>(0);
 
   const [simulatedText, setSimulatedText] = useState<string>("");
-  const fullText = "Salom! Bu MatozAI platformasi. Biz o'zbek tilidagi nutqni matnga aylantirish uchun eng so'nggi sun'iy intellekt texnologiyalaridan foydalanamiz. Hozir gapirib ko'ring...";
+  const fullText = "Salom! Bu Sado platformasi. Biz o'zbek tilidagi nutqni matnga aylantirish uchun eng so'nggi sun'iy intellekt texnologiyalaridan foydalanamiz. Hozir gapirib ko'ring...";
 
   // Auto-typing effect
   useEffect(() => {
@@ -95,7 +95,7 @@ const Hero: React.FC = () => {
           <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight">
             Erkin Gapiring.<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">
-              MatozAI Tinglaydi.
+              Sado Tinglaydi.
             </span>
           </h1>
           

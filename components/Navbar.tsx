@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
           <div className="w-10 h-10 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-500/20 group-hover:scale-110 transition-transform">
             <Logo size={40} />
           </div>
-          <span className="text-xl font-bold tracking-tight text-white">Matoz<span className="text-emerald-400">AI</span></span>
+          <span className="text-xl font-bold tracking-tight text-white">Sa<span className="text-emerald-400">do</span></span>
         </Link>
 
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
