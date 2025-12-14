@@ -55,7 +55,7 @@ const Navbar: React.FC = () => {
         </div>
 
         <Link
-          to="https://matoz-ai.vercel.app/"
+          to="https://sadoo.vercel.app/"
           className="bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2.5 rounded-xl font-medium transition-all transform hover:scale-105 shadow-lg shadow-emerald-900/50 text-sm flex items-center gap-2"
         >
           Demoni Sinash

@@ -106,7 +106,7 @@ const Hero: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row gap-4">
             <a 
-              href="https://matoz-ai.vercel.app/"
+              href="https://sadoo.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex justify-center items-center gap-2 px-8 py-4 rounded-xl font-bold transition-all shadow-xl hover:shadow-2xl hover:scale-105 bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-500/20"
