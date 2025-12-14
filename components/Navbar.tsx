@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
               <button onClick={() => scrollTo('features')} className="hover:text-emerald-400 transition-colors">Imkoniyatlar</button>
               <button onClick={() => scrollTo('team')} className="hover:text-emerald-400 transition-colors">Jamoa</button>
               <button onClick={() => scrollTo('roadmap')} className="hover:text-emerald-400 transition-colors">Rejalar</button>
-              <Link to="/demo" className="hover:text-emerald-400 transition-colors">Demo</Link>
+              {/* <Link to="/demo" className="hover:text-emerald-400 transition-colors">Demo</Link> */}
             </>
           ) : (
             <>
