@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Mic, ArrowRight, Play } from 'lucide-react';
+import React, { useEffect, useRef, useState } from "react";
+import { Mic, ArrowRight, Play } from "lucide-react";
 
 // YouTube video ID
-const VIDEO_1_ID = 'v291dWeNzME';
+const VIDEO_1_ID = "v291dWeNzME";
 
 // Declare YouTube API types
 declare global {
@@ -20,9 +20,9 @@ const Demo: React.FC = () => {
   useEffect(() => {
     // Load YouTube IFrame API
     if (!window.YT) {
-      const tag = document.createElement('script');
-      tag.src = 'https://www.youtube.com/iframe_api';
-      const firstScriptTag = document.getElementsByTagName('script')[0];
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      const firstScriptTag = document.getElementsByTagName("script")[0];
       firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
 
       window.onYouTubeIframeAPIReady = () => {
@@ -78,9 +78,9 @@ const Demo: React.FC = () => {
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-tight mb-4 md:mb-6 px-4">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">
-                Sado
-              </span>
-              {' '}Qanday Ishlaydi?
+                Sadoo
+              </span>{" "}
+              Qanday Ishlaydi?
             </h1>
             <p className="text-sm sm:text-base md:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed px-4">
               Platformamizning kuchini ko'rsatadigan demo videolar
@@ -103,7 +103,9 @@ const Demo: React.FC = () => {
                   className="w-0.5 md:w-1 bg-gradient-to-t from-emerald-500/40 via-emerald-400/60 to-emerald-300/40 rounded-full"
                   style={{
                     height: `${height}%`,
-                    animation: `wave ${2 + Math.random()}s ease-in-out infinite`,
+                    animation: `wave ${
+                      2 + Math.random()
+                    }s ease-in-out infinite`,
                     animationDelay: `${delay}s`,
                   }}
                 />
@@ -130,22 +132,34 @@ const Demo: React.FC = () => {
         <div className="w-full max-w-[95vw] mx-auto px-4 sm:px-6 relative z-10">
           <div className="relative rounded-lg md:rounded-xl overflow-hidden border border-dark-700/50">
             {/* Video Container - Responsive */}
-            <div className="relative w-full bg-dark-800/40" style={{ height: 'clamp(400px, 70vh, 800px)' }}>
+            <div
+              className="relative w-full bg-dark-800/40"
+              style={{ height: "clamp(400px, 70vh, 800px)" }}
+            >
               <div className="absolute inset-0 w-full h-full">
                 {/* YouTube Video Player */}
                 <div
                   ref={video1Ref}
                   className="w-full h-full"
-                  style={{ height: '100%' }}
+                  style={{ height: "100%" }}
                 />
                 {/* Loading placeholder */}
                 {!isAPIReady && (
                   <div className="absolute inset-0 flex items-center justify-center bg-dark-900/60">
                     <div className="text-center px-4">
                       <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mx-auto mb-4 rounded-full bg-emerald-500/20 flex items-center justify-center animate-pulse">
-                        <Play className="text-emerald-400 ml-1" size={24} style={{ width: 'clamp(20px, 5vw, 32px)', height: 'clamp(20px, 5vw, 32px)' }} />
+                        <Play
+                          className="text-emerald-400 ml-1"
+                          size={24}
+                          style={{
+                            width: "clamp(20px, 5vw, 32px)",
+                            height: "clamp(20px, 5vw, 32px)",
+                          }}
+                        />
                       </div>
-                      <p className="text-slate-300 text-sm sm:text-base font-medium">Yuklanmoqda...</p>
+                      <p className="text-slate-300 text-sm sm:text-base font-medium">
+                        Yuklanmoqda...
+                      </p>
                     </div>
                   </div>
                 )}
@@ -158,7 +172,8 @@ const Demo: React.FC = () => {
                 Muammo, Yechim va Texnologiyalar
               </h3>
               <p className="text-xs sm:text-sm text-slate-400">
-                O'zbek tilidagi nutqni matnga aylantirish muammolari va Sado yechimlari
+                O'zbek tilidagi nutqni matnga aylantirish muammolari va Sadoo
+                yechimlari
               </p>
             </div>
           </div>
@@ -168,7 +183,6 @@ const Demo: React.FC = () => {
       {/* Call to Action Section */}
       <section className="relative py-16 md:py-32 overflow-hidden">
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
-
           {/* Minimal Headline */}
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 tracking-tight">
             O'zingiz sinab ko'ring <br />
@@ -176,29 +190,48 @@ const Demo: React.FC = () => {
           </h2>
 
           <p className="text-sm sm:text-base md:text-lg text-slate-400 mb-8 md:mb-12 max-w-xl mx-auto font-light leading-relaxed">
-            Hech qanday ro'yxatdan o'tish shart emas. Shunchaki tugmani bosing va texnologiyani sinab ko'ring.
+            Hech qanday ro'yxatdan o'tish shart emas. Shunchaki tugmani bosing
+            va texnologiyani sinab ko'ring.
           </p>
 
           {/* Action Area */}
           <div className="relative inline-block group">
-
             {/* Main Button */}
             <a
-              href="https://sadoo.vercel.app/"
+              href="https://sadoo.uz/"
               target="_blank"
               rel="noopener noreferrer"
               className="relative z-20 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 bg-white text-dark-900 hover:bg-emerald-50 rounded-xl md:rounded-2xl font-bold text-sm sm:text-base md:text-lg transition-all transform hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.3)] flex items-center gap-2 sm:gap-3 mx-auto"
             >
-              <Mic size={20} style={{ width: 'clamp(20px, 5vw, 24px)', height: 'clamp(20px, 5vw, 24px)' }} className="text-emerald-600" />
+              <Mic
+                size={20}
+                style={{
+                  width: "clamp(20px, 5vw, 24px)",
+                  height: "clamp(20px, 5vw, 24px)",
+                }}
+                className="text-emerald-600"
+              />
               <span>Demoni Boshlash</span>
-              <ArrowRight size={18} style={{ width: 'clamp(18px, 4vw, 20px)', height: 'clamp(18px, 4vw, 20px)' }} className="text-emerald-600 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight
+                size={18}
+                style={{
+                  width: "clamp(18px, 4vw, 20px)",
+                  height: "clamp(18px, 4vw, 20px)",
+                }}
+                className="text-emerald-600 group-hover:translate-x-1 transition-transform"
+              />
             </a>
 
             {/* Animated Creative Cue (Desktop) */}
             <div className="hidden lg:block absolute -right-48 top-1/2 -translate-y-1/2 pointer-events-none">
               <div className="relative">
                 {/* Handwritten-style Arrow SVG */}
-                <svg width="120" height="60" viewBox="0 0 120 60" className="text-emerald-500/80 -rotate-12 drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]">
+                <svg
+                  width="120"
+                  height="60"
+                  viewBox="0 0 120 60"
+                  className="text-emerald-500/80 -rotate-12 drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]"
+                >
                   <path
                     d="M 110 10 Q 60 50 10 30"
                     fill="none"
@@ -223,7 +256,10 @@ const Demo: React.FC = () => {
 
                 {/* Simulated Mouse Cursor */}
                 <div className="absolute -left-4 bottom-0 animate-[bounce_2s_infinite]">
-                  <Play className="text-white fill-emerald-500 rotate-[-15deg]" size={24} />
+                  <Play
+                    className="text-white fill-emerald-500 rotate-[-15deg]"
+                    size={24}
+                  />
                 </div>
               </div>
             </div>
@@ -231,9 +267,10 @@ const Demo: React.FC = () => {
             {/* Mobile Hint (Simple Arrow) */}
             <div className="lg:hidden absolute -bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 animate-bounce opacity-80">
               <div className="w-px h-6 bg-gradient-to-b from-transparent to-emerald-500"></div>
-              <span className="text-xs text-emerald-400 font-mono tracking-widest uppercase">Tepaga</span>
+              <span className="text-xs text-emerald-400 font-mono tracking-widest uppercase">
+                Tepaga
+              </span>
             </div>
-
           </div>
 
           {/* Minimal Footer Stats */}
@@ -251,7 +288,6 @@ const Demo: React.FC = () => {
               Xavfsiz
             </div>
           </div>
-
         </div>
       </section>
     </div>

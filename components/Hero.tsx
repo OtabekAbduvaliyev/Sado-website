@@ -1,5 +1,12 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { Mic, Pause, Globe, RefreshCcw, Sparkles } from 'lucide-react';
+import React, { useRef, useEffect, useState } from "react";
+import {
+  Mic,
+  Pause,
+  Globe,
+  RefreshCcw,
+  Sparkles,
+  MessageCircle,
+} from "lucide-react";
 
 const Hero: React.FC = () => {
   const [isAnimating, setIsAnimating] = useState(true);
@@ -7,13 +14,14 @@ const Hero: React.FC = () => {
   const animationRef = useRef<number>(0);
 
   const [simulatedText, setSimulatedText] = useState<string>("");
-  const fullText = "Salom! Bu Sado platformasi. Biz o'zbek tilidagi nutqni matnga aylantirish uchun eng so'nggi sun'iy intellekt texnologiyalaridan foydalanamiz. Hozir gapirib ko'ring...";
+  const fullText =
+    "Salom! Bu Sadoo platformasi. Biz o'zbek tilidagi nutqni matnga aylantirish uchun eng so'nggi sun'iy intellekt texnologiyalaridan foydalanamiz. Hozir gapirib ko'ring...";
 
   // Auto-typing effect
   useEffect(() => {
     let timeout: any;
     let currentIndex = 0;
-    
+
     const typeWriter = () => {
       if (currentIndex <= fullText.length) {
         setSimulatedText(fullText.slice(0, currentIndex));
@@ -31,7 +39,7 @@ const Hero: React.FC = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     let time = 0;
@@ -39,10 +47,10 @@ const Hero: React.FC = () => {
 
     const animate = () => {
       if (!isAnimating) return;
-      
+
       time += 0.05;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
+
       const barWidth = canvas.width / bars;
       const centerX = canvas.width / 2;
       const centerY = canvas.height / 2;
@@ -52,13 +60,13 @@ const Hero: React.FC = () => {
         const distFromCenter = Math.abs(i - bars / 2) / (bars / 2);
         const wave = Math.sin(i * 0.2 + time) * Math.cos(time * 0.5);
         const noise = Math.random() * 0.3;
-        
+
         // Make height lower at edges, higher in center
         let height = (wave * 30 + noise * 20 + 10) * (1 - distFromCenter);
         if (height < 2) height = 2; // Min height
 
         const x = i * barWidth;
-        
+
         // Gradient color
         ctx.fillStyle = `rgba(16, 185, 129, ${0.5 + height / 80})`; // Emerald opacity
 
@@ -76,13 +84,15 @@ const Hero: React.FC = () => {
   }, [isAnimating]);
 
   return (
-    <section id="demo" className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden">
+    <section
+      id="demo"
+      className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden"
+    >
       {/* Background blobs */}
       <div className="absolute top-20 right-0 w-96 h-96 bg-emerald-600/20 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-blob"></div>
       <div className="absolute top-40 -left-20 w-72 h-72 bg-blue-600/20 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
 
       <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        
         <div className="space-y-8 z-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-900/30 border border-emerald-800 text-emerald-400 text-sm font-medium">
             <span className="relative flex h-2 w-2">
@@ -91,22 +101,24 @@ const Hero: React.FC = () => {
             </span>
             Jonli Demo Mavjud
           </div>
-          
+
           <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight">
-            Erkin Gapiring.<br />
+            Erkin Gapiring.
+            <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">
-              Sado Tinglaydi.
+              Sadoo Tinglaydi.
             </span>
           </h1>
-          
+
           <p className="text-lg text-slate-400 max-w-lg leading-relaxed">
-            <strong>O'zbek tili</strong> uchun to'liq optimallashtirilgan birinchi AI ovoz platformasi. 
-            99% aniqlik bilan transkripsiya, tarjima va xulosa qilish imkoniyati.
+            <strong>O'zbek tili</strong> uchun to'liq optimallashtirilgan
+            birinchi AI ovoz platformasi. 99% aniqlik bilan transkripsiya,
+            tarjima va xulosa qilish imkoniyati.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <a 
-              href="https://sadoo.vercel.app/"
+            <a
+              href="https://sadoo.uz/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex justify-center items-center gap-2 px-8 py-4 rounded-xl font-bold transition-all shadow-xl hover:shadow-2xl hover:scale-105 bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-500/20"
@@ -114,9 +126,15 @@ const Hero: React.FC = () => {
               <Mic size={20} />
               Yozishni Boshlash
             </a>
-            <button className="px-8 py-4 rounded-xl font-bold text-slate-300 border border-slate-700 hover:bg-slate-800 transition-all">
-              Hujjatlarni O'qish
-            </button>
+            <a
+              href="https://t.me/sadoouzBot"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex justify-center items-center gap-2 px-8 py-4 rounded-xl font-bold text-slate-300 border border-slate-700 hover:bg-slate-800 transition-all hover:text-white"
+            >
+              <MessageCircle size={20} />
+              Telegram Bot
+            </a>
           </div>
         </div>
 
@@ -128,12 +146,18 @@ const Hero: React.FC = () => {
 
             <div className="flex justify-between items-center mb-6">
               <div className="flex gap-2">
-                 <button className="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 text-slate-300 transition-colors border border-dark-600" title="Alifboni o'zgartirish">
-                   <Globe size={18} />
-                 </button>
-                 <button className="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 text-slate-300 transition-colors border border-dark-600" title="Tarix">
-                   <RefreshCcw size={18} />
-                 </button>
+                <button
+                  className="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 text-slate-300 transition-colors border border-dark-600"
+                  title="Alifboni o'zgartirish"
+                >
+                  <Globe size={18} />
+                </button>
+                <button
+                  className="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 text-slate-300 transition-colors border border-dark-600"
+                  title="Tarix"
+                >
+                  <RefreshCcw size={18} />
+                </button>
               </div>
               <div className="flex items-center gap-2 text-xs font-mono text-emerald-400 bg-emerald-950/50 px-3 py-1.5 rounded-full border border-emerald-900/50">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -144,49 +168,49 @@ const Hero: React.FC = () => {
             {/* Visualizer Canvas */}
             <div className="h-24 w-full bg-dark-900/50 rounded-xl mb-6 overflow-hidden flex items-center justify-center border border-dark-700/50 relative">
               <div className="absolute inset-0 bg-gradient-to-b from-transparent to-dark-900/20 pointer-events-none"></div>
-              <canvas 
-                ref={canvasRef} 
-                width={500} 
-                height={100} 
+              <canvas
+                ref={canvasRef}
+                width={500}
+                height={100}
                 className="w-full h-full opacity-90"
               />
             </div>
 
             {/* Transcription Area */}
             <div className="h-48 bg-dark-900 rounded-xl p-5 text-lg text-slate-200 font-medium leading-relaxed overflow-y-auto border border-dark-700/50 shadow-inner">
-               {simulatedText ? (
-                 <span className="font-sans">
-                   {simulatedText}
-                   <span className="animate-pulse inline-block w-0.5 h-5 bg-emerald-500 ml-1 align-middle"></span>
-                 </span>
-               ) : (
-                 <span className="text-slate-600 italic">Mikrofonni bosing va o'zbek tilida gapiring...</span>
-               )}
+              {simulatedText ? (
+                <span className="font-sans">
+                  {simulatedText}
+                  <span className="animate-pulse inline-block w-0.5 h-5 bg-emerald-500 ml-1 align-middle"></span>
+                </span>
+              ) : (
+                <span className="text-slate-600 italic">
+                  Mikrofonni bosing va o'zbek tilida gapiring...
+                </span>
+              )}
             </div>
 
             {/* Action Deck */}
             <div className="mt-6 flex justify-between items-center pt-2 border-t border-dark-700/50">
-               <div className="text-[10px] text-slate-500 font-mono tracking-widest uppercase">
-                 MODEL: GEMINI-2.5-NATIVE
-               </div>
-               <div className="flex gap-3">
-                 <button className="p-2 rounded-full bg-dark-700 hover:bg-emerald-600 hover:text-white text-slate-400 transition-all">
-                    <Sparkles size={14} />
-                 </button>
-                 <div className="w-px h-8 bg-dark-700 mx-1"></div>
-                 <div className="w-2 h-2 rounded-full bg-slate-600 my-auto"></div>
-                 <div className="w-2 h-2 rounded-full bg-slate-600 my-auto"></div>
-                 <div className="w-2 h-2 rounded-full bg-emerald-500 my-auto shadow-[0_0_10px_rgba(16,185,129,0.5)]"></div>
-               </div>
+              <div className="text-[10px] text-slate-500 font-mono tracking-widest uppercase">
+                MODEL: GEMINI-3.0-FLASH
+              </div>
+              <div className="flex gap-3">
+                <button className="p-2 rounded-full bg-dark-700 hover:bg-emerald-600 hover:text-white text-slate-400 transition-all">
+                  <Sparkles size={14} />
+                </button>
+                <div className="w-px h-8 bg-dark-700 mx-1"></div>
+                <div className="w-2 h-2 rounded-full bg-slate-600 my-auto"></div>
+                <div className="w-2 h-2 rounded-full bg-slate-600 my-auto"></div>
+                <div className="w-2 h-2 rounded-full bg-emerald-500 my-auto shadow-[0_0_10px_rgba(16,185,129,0.5)]"></div>
+              </div>
             </div>
-
           </div>
-          
+
           {/* Decorative Elements behind card */}
           <div className="absolute -z-10 -bottom-10 -right-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-2xl"></div>
           <div className="absolute -z-10 -top-10 -left-10 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl"></div>
         </div>
-
       </div>
     </section>
   );
