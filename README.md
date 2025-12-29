@@ -29,9 +29,7 @@ This repository contains the **Official Presentation Website** (Landing Page) fo
 Sadoo is more than just a website; it is a comprehensive cross-platform ecosystem designed to be available wherever you need it.
 
 - **[Sadoo Web](https://sadoo.uz/)**: The core Progressive Web App (PWA) for heavy-duty transcription and document management.
-- **[Sadoo Mobile](https://github.com/kaizo/Sadoo/tree/main/Sadoo_mobile)**: Native mobile experience for iOS and Android, optimized for on-the-go recording.
 - **[Sadoo Bot](https://t.me/sadoouzBot)**: A powerful Telegram bot that brings Sadoo's AI capabilities into your messenger.
-- **[Sadoo Admin](https://github.com/kaizo/Sadoo/tree/main/sado-admin)**: A dedicated portal for system monitoring, user management, and analytics.
 
 ---
 
@@ -128,4 +126,4 @@ To run this landing page project locally, follow these steps:
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-Copyright © 2025 **Radikal AI** - Prepared by [radikal.uz](https://radikal.uz)
+Copyright © 2025 **Sadoo**
